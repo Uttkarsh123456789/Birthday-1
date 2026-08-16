@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anshika! 💖</title>
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #ffeef8 0%, #f0e6ff 100%);
+            --card-bg: rgba(255, 255, 255, 0.94);
+            --primary: #ff3b7b;
+            --primary-gradient: linear-gradient(135deg, #ff3b7b 0%, #983bff 100%);
+            --text-main: #2d132c;
+            --text-sub: #665264;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 390px;
+            height: 720px;
+            background: var(--card-bg);
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(152, 59, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .top-bar {
+            padding: 14px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-sub);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.4);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .step {
+            display: none;
+            width: 100%;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .step.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(18px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .badge {
+            background: #ffe3ee;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.sub-text {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 59, 123, 0.3);
+            transition: all 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .action-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* 1. Cake & Candles */
+        .cake-wrapper { margin: 15px 0; display: flex; flex-direction: column; align-items: center; }
+        .candles-group { display: flex; gap: 16px; margin-bottom: -6px; z-index: 2; }
+        .candle-stick {
+            width: 12px; height: 48px;
+            background: linear-gradient(to right, #ffffff, #ffe0f0);
+            border-radius: 6px; cursor: pointer; position: relative;
+        }
+        .flame-glow {
+            width: 16px; height: 24px; background: #ff9d00;
+            border-radius: 50% 50% 20% 20%; position: absolute;
+            top: -22px; left: -2px; opacity: 0; transform: scale(0);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 15px #ff9d00, 0 0 30px #ff0055;
+        }
+        .candle-stick.lit .flame-glow { opacity: 1; transform: scale(1); }
+        .cake-base {
+            width: 190px; height: 85px; background: linear-gradient(to right, #ff8dae, #ff6b95);
+            border-radius: 20px 20px 10px 10px; box-shadow: 0 12px 25px rgba(255, 107, 149, 0.3);
+        }
+
+        /* 2. Passcode */
+        .passcode-dots { display: flex; gap: 12px; margin-bottom: 20px; }
+        .dot-input { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--primary); }
+        .dot-input.filled { background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+        .numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 230px; }
+        .num-btn {
+            width: 60px; height: 60px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: 700; box-shadow: 0 5px 12px rgba(0,0,0,0.05); cursor: pointer;
+        }
+
+        /* 3. Spin Wheel */
+        .wheel-container {
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 6px solid var(--primary); position: relative;
+            margin: 15px 0; overflow: hidden; transition: transform 3s cubic-bezier(0.15, 0.9, 0.15, 1);
+            background: conic-gradient(#ff758c 0deg 90deg, #ff7eb3 90deg 180deg, #aa4b6b 180deg 270deg, #6b6b83 270deg 360deg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .wheel-pointer {
+            width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent;
+            border-top: 18px solid var(--primary); position: absolute; top: 125px; z-index: 10;
+        }
+        .wheel-box { position: relative; display: flex; flex-direction: column; align-items: center; }
+
+        /* 4. Balloons */
+        .balloon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 15px 0; }
+        .balloon-item { font-size: 2.6rem; cursor: pointer; transition: transform 0.2s; user-select: none; }
+        .balloon-item.popped { opacity: 0; pointer-events: none; }
+
+        /* 5. Music Player */
+        .player-card {
+            width: 100%; background: white; padding: 20px; border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin: 15px 0; text-align: left;
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .player-header { display: flex; gap: 12px; align-items: center; }
+        .track-cover { width: 50px; height: 50px; background: var(--primary-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+        .track-info h4 { font-size: 0.95rem; font-weight: 700; }
+        .track-info p { font-size: 0.78rem; color: #888; }
+        .progress-bar { width: 100%; height: 6px; background: #eee; border-radius: 3px; position: relative; overflow: hidden; }
+        .progress-fill { width: 65%; height: 100%; background: var(--primary); }
+
+        /* 6. Polaroid Photo */
+        .polaroid-card {
+            background: white; padding: 12px 12px 20px 12px; border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); transform: rotate(-2deg); width: 220px; margin-bottom: 15px;
+        }
+        .polaroid-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .polaroid-caption { font-size: 0.9rem; color: #555; margin-top: 10px; font-weight: 600; }
+
+        /* 7. Scratch Card */
+        .scratch-card {
+            width: 100%; height: 130px; background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08); padding: 15px; margin: 15px 0;
+        }
+        .scratch-card.revealed { background: #fff5f8; color: var(--primary); border: 2px dashed var(--primary); }
+
+        /* 8. Envelope */
+        .envelope-box {
+            width: 100%; background: white; padding: 20px; border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); cursor: pointer; margin: 15px 0;
+            border: 2px solid #ffe3ee;
+        }
+
+        /* 9. Promises */
+        .checklist-wrapper { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+        .check-card {
+            background: white; padding: 12px 14px; border-radius: 14px;
+            display: flex; align-items: center; gap: 10px; text-align: left; font-size: 0.85rem; font-weight: 600;
+        }
+        .check-card input { accent-color: var(--primary); width: 18px; height: 18px; }
+
+        /* Bottom Dots */
+        .bottom-dots { padding: 14px; display: flex; justify-content: center; gap: 6px; background: rgba(255,255,255,0.3); }
+        .dot-indicator { width: 6px; height: 6px; background: #dcd0e0; border-radius: 50%; transition: all 0.3s; }
+        .dot-indicator.active { background: var(--primary); width: 18px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="phone-frame">
+        <div class="top-bar">✨ dilsecraft.com</div>
+
+        <div class="main-content">
+
+            <!-- STEP 1: CANDLES -->
+            <div class="step active" id="step-1">
+                <span class="badge">MAKE A WISH</span>
+                <h2>Light The Candles 🎂</h2>
+                <p class="sub-text">Tap on each candle to bring the magic alive!</p>
+                <div class="cake-wrapper">
+                    <div class="candles-group">
+                        <div class="candle-stick" onclick="lightCandle(this)"><div class="flame-glow"></div></div>
+                        <div class="candle-stick" onclick="lightCandle(this)"><div class="flame-glow"></div></div>
+                        <div class="candle-stick" onclick="lightCandle(this)"><div class="flame-glow"></div></div>
+                        <div class="candle-stick" onclick="lightCandle(this)"><div class="flame-glow"></div></div>
+                        <div class="candle-stick" onclick="lightCandle(this)"><div class="flame-glow"></div></div>
+                    </div>
+                    <div class="cake-base"></div>
+                </div>
+                <p id="candle-count" style="font-size: 0.85rem; font-weight:700; color:var(--primary); margin-bottom:10px;">0 / 5 Lit</p>
+                <button class="action-btn" id="btn-1" style="visibility:hidden;" onclick="nextStep(2)">Wish Granted ➔</button>
+            </div>
+
+            <!-- STEP 2: SECRET PASSCODE -->
+            <div class="step" id="step-2">
+                <span class="badge">SECURITY CHECK</span>
+                <h2>Unlock My Heart 🔐</h2>
+                <p class="sub-text">Enter the 4-digit secret code<br><b>(Hint: Birthday U & ME)</b></p>
+                <div class="passcode-dots">
+                    <div class="dot-input" id="dot-0"></div>
+                    <div class="dot-input" id="dot-1"></div>
+                    <div class="dot-input" id="dot-2"></div>
+                    <div class="dot-input" id="dot-3"></div>
+                </div>
+                <div class="numpad">
+                    <div class="num-btn" onclick="pressNum('1')">1</div>
+                    <div class="num-btn" onclick="pressNum('2')">2</div>
+                    <div class="num-btn" onclick="pressNum('3')">3</div>
+                    <div class="num-btn" onclick="pressNum('4')">4</div>
+                    <div class="num-btn" onclick="pressNum('5')">5</div>
+                    <div class="num-btn" onclick="pressNum('6')">6</div>
+                    <div class="num-btn" onclick="pressNum('7')">7</div>
+                    <div class="num-btn" onclick="pressNum('8')">8</div>
+                    <div class="num-btn" onclick="pressNum('9')">9</div>
+                    <div class="num-btn" onclick="pressNum('0')">0</div>
+                    <div class="num-btn" style="grid-column: span 3; width:100%; border-radius:20px; font-size:0.9rem;" onclick="clearPasscode()">Clear</div>
+                </div>
+                <button class="action-btn" id="btn-2" style="visibility:hidden;" onclick="nextStep(4)">Access Granted ➔</button>
+            </div>
+
+            <!-- STEP 3: BIRTHDAY PERK SPIN WHEEL -->
+            <div class="step" id="step-3">
+                <span class="badge">SURPRISE PERKS</span>
+                <h2>Spin For Birthday Gift 🎰</h2>
+                <p class="sub-text">Spin the wheel to win your birthday treat!</p>
+                
+                <div class="wheel-box">
+                    <div class="wheel-pointer"></div>
+                    <div class="wheel-container" id="spinWheel"></div>
+                </div>
+                
+                <p id="wheel-result" style="font-size:0.9rem; font-weight:700; color:var(--primary); margin:10px 0;">Tap Spin to discover your gift!</p>
+                <button class="action-btn" id="spin-btn" onclick="spinWheel()">Spin Wheel 🎲</button>
+                <button class="action-btn" id="btn-3" style="display:none;" onclick="nextStep(4)">Claim Gift ➔</button>
+            </div>
+
+            <!-- STEP 4: BALLOON POP -->
+            <div class="step" id="step-4">
+                <span class="badge">POP PARTY</span>
+                <h2>Pop All Balloons 🎈</h2>
+                <p class="sub-text">Tap all balloons to reveal your next surprise!</p>
+                <div class="balloon-grid">
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                    <div class="balloon-item" onclick="popBalloon(this)">🎈</div>
+                </div>
+                <p id="balloon-status" style="font-size: 0.85rem; font-weight:700; color:var(--primary); margin-bottom:10px;">0 / 8 Popped</p>
+                <button class="action-btn" id="btn-4" style="visibility:hidden;" onclick="nextStep(5)">Party On ➔</button>
+            </div>
+
+            <!-- STEP 5: DEDICATED SONG -->
+            <div class="step" id="step-5">
+                <span class="badge">Tum se hi</span>
+                <h2>Dedicated Song 🎵</h2>
+                <p class="sub-text">This track always reminds me of you!</p>
+                
+                <div class="player-card">
+                    <div class="player-header">
+                        <div class="track-cover">💖</div>
+                        <div class="track-info">
+                            <h4>You Are My Universe ✨</h4>
+                            <p>Special Track • For My Love</p>
+                        </div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                    <p style="font-size:0.8rem; color:#666; font-style:italic;">In a room full of art, I would still stare at you.</p>
+                </div>
+
+                <button class="action-btn" onclick="nextStep(6)">Next Memory ➔</button>
+            </div>
+
+            <!-- STEP 6: POLAROID PHOTO -->
+            <div class="step" id="step-6">
+                <span class="badge">FAVORITE MOMENT</span>
+                <h2>Always & Forever 📸</h2>
+                <p class="sub-text">One year older, ten times more iconic!</p>
+                <div class="polaroid-card">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" alt="Memory Photo">
+                    <div class="polaroid-caption">You make every day special ❤️</div>
+                </div>
+                <button class="action-btn" onclick="nextStep(7)">Continue ➔</button>
+            </div>
+
+            <!-- STEP 7: SECRET REVEAL -->
+            <div class="step" id="step-7">
+                <span class="badge">SECRET REVEAL</span>
+                <h2>Tap To Unveil 🔮</h2>
+                <p class="sub-text">Tap the card to reveal a hidden secret message!</p>
+                
+                <div class="scratch-card" id="scratchCard" onclick="revealSecret()">
+                    Tap Here To Reveal Secret ✨
+                </div>
+
+                <button class="action-btn" id="btn-7" style="display:none;" onclick="nextStep(8)">Read Letter ➔</button>
+            </div>
+
+            <!-- STEP 8: LOVE LETTER -->
+            <div class="step" id="step-8">
+                <span class="badge">LOVE LETTER</span>
+                <h2>From My Heart ✉️</h2>
+                <p class="sub-text">Tap the envelope to read your letter.</p>
+                
+                <div class="envelope-box" id="envelopeBox" onclick="openLetter()">
+                    <div id="envelopeContent">
+                        <p style="font-size:1.5rem; margin-bottom:5px;">💌</p>
+                        <p style="font-weight:700; color:var(--primary);">Tap to Open Letter</p>
+                    </div>
+                </div>
+
+                <button class="action-btn" id="btn-8" style="display:none;" onclick="nextStep(9)">Sign Contract ➔</button>
+            </div>
+
+            <!-- STEP 9: PROMISES -->
+            <div class="step" id="step-9">
+                <span class="badge">BIRTHDAY CONTRACT</span>
+                <h2>Birthday Promises 👑</h2>
+                <p class="sub-text">Do you promise to agree to all terms?</p>
+                <div class="checklist-wrapper">
+                    <label class="check-card"><input type="checkbox" checked disabled> Accept unlimited birthday chaos</label>
+                    <label class="check-card"><input type="checkbox" checked disabled> Reply to birthday texts within 48h</label>
+                    <label class="check-card"><input type="checkbox" checked disabled> Eat cake before salad always</label>
+                    <label class="check-card"><input type="checkbox" checked disabled> Keep being the main character ✨</label>
+                </div>
+                <button class="action-btn" onclick="finishParty()">I Pinky-Promise! ❤️</button>
+            </div>
+
+        </div>
+
+        <div class="bottom-dots">
+            <div class="dot-indicator active"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+            <div class="dot-indicator"></div>
+        </div>
+    </div>
+
+    <script>
+        var currentStep = 1;
+        var litCandles = 0;
+        var passcode = "";
+        var correctCode = "1701";
+        var hasSpun = false;
+        var poppedCount = 0;
+
+        function triggerConfetti() {
+            var canvas = document.createElement('canvas');
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100vw';
+            canvas.style.height = '100vh';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '9999';
+            document.body.appendChild(canvas);
+
+            var ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            var particles = [];
+            var colors = ['#ff3b7b', '#983bff', '#ffca3a', '#8ac926', '#1982c4'];
+
+            for (var i = 0; i < 70; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 12,
+                    vy: (Math.random() - 0.5) * 12 - 3,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 100
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var alive = false;
+                for (var j = 0; j < particles.length; j++) {
+                    var p = particles[j];
+                    if (p.life > 0) {
+                        alive = true;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.vy += 0.2;
+                        p.life--;
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(p.x, p.y, p.size, p.size);
+                    }
+                }
+                if (alive) {
+                    requestAnimationFrame(animate);
+                } else {
+                    canvas.remove();
+                }
+            }
+            animate();
+        }
+
+        function updateDots(step) {
+            var dots = document.querySelectorAll('.dot-indicator');
+            for (var i = 0; i < dots.length; i++) {
+                if (i === step - 1) {
+                    dots[i].classList.add('active');
+                } else {
+                    dots[i].classList.remove('active');
+                }
+            }
+        }
+
+        function nextStep(step) {
+            var currentEl = document.getElementById('step-' + currentStep);
+            var nextEl = document.getElementById('step-' + step);
+            if (currentEl) currentEl.classList.remove('active');
+            if (nextEl) nextEl.classList.add('active');
+            currentStep = step;
+            updateDots(currentStep);
+        }
+
+        function lightCandle(el) {
+            if (!el.classList.contains('lit')) {
+                el.classList.add('lit');
+                litCandles++;
+                var countEl = document.getElementById('candle-count');
+                if (countEl) countEl.innerText = litCandles + " / 5 Lit";
+                if (litCandles === 5) {
+                    triggerConfetti();
+                    var btn = document.getElementById('btn-1');
+                    if (btn) btn.style.visibility = 'visible';
+                }
+            }
+        }
+
+        function pressNum(num) {
+            if (passcode.length < 4) {
+                passcode += num;
+                var dot = document.getElementById('dot-' + (passcode.length - 1));
+                if (dot) dot.classList.add('filled');
+                
+                if (passcode.length === 4) {
+                    if (passcode === correctCode) {
+                        triggerConfetti();
+                        var btn = document.getElementById('btn-2');
+                        if (btn) btn.style.visibility = 'visible';
+                    } else {
+                        setTimeout(clearPasscode, 400);
+                    }
+                }
+            }
+        }
+
+        function clearPasscode() {
+            passcode = "";
+            for (var i = 0; i < 3; i++) {
+                var dot = document.getElementById('dot-' + i);
+                if (dot) dot.classList.remove('filled');
+            }
+            var btn = document.getElementById('btn-2');
+            if (btn) btn.style.visibility = 'hidden';
+        }
+
+        function spinWheel() {
+            if (!hasSpun) {
+                hasSpun = true;
+                var wheel = document.getElementById('spinWheel');
+                if (wheel) wheel.style.transform = "rotate(1440deg)";
+                setTimeout(function() {
+                    triggerConfetti();
+                    var res = document.getElementById('wheel-result');
+                    if (res) res.innerText = "🎁 You Won: Unlimited Spa & Ice Cream Date!";
+                    var spinBtn = document.getElementById('spin-btn');
+                    if (spinBtn) spinBtn.style.display = 'none';
+                    var btn3 = document.getElementById('btn-3');
+                    if (btn3) btn3.style.display = 'block';
+                }, 3000);
+            }
+        }
+
+        function popBalloon(el) {
+            if (!el.classList.contains('popped')) {
+                el.classList.add('popped');
+                poppedCount++;
+                var status = document.getElementById('balloon-status');
+                if (status) status.innerText = poppedCount + " / 8 Popped";
+                if (poppedCount === 8) {
+                    triggerConfetti();
+                    var btn = document.getElementById('btn-4');
+                    if (btn) btn.style.visibility = 'visible';
+                }
+            }
+        }
+
+        function revealSecret() {
+            var card = document.getElementById('scratchCard');
+            if (card) {
+                card.classList.add('revealed');
+                card.innerText = "My favorite place in the whole world is right next to you. ❤️";
+            }
+            var btn = document.getElementById('btn-7');
+            if (btn) btn.style.display = 'block';
+            triggerConfetti();
+        }
+
+        function openLetter() {
+            var content = document.getElementById('envelopeContent');
+            if (content) {
+                content.innerHTML = '<p style="font-size:0.85rem; line-height:1.5; color:#333; text-align:left;"><b>My Dearest Anshika,</b><br>Happy Birthday! Thank you for bringing so much warmth, smiles, and happiness into my life. I hope this year brings you everything you wish for! 💕</p>';
+            }
+            var btn = document.getElementById('btn-8');
+            if (btn) btn.style.display = 'block';
+            triggerConfetti();
+        }
+
+        function finishParty() {
+            triggerConfetti();
+            alert("Happy Birthday My Love! I Love You! ❤️🎉");
+        }
+    </script>
+</body>
+</html>
